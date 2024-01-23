@@ -7,8 +7,9 @@ mod utils;
 
 fn get_user_input() {
     env::set_current_dir(dirs::home_dir().unwrap()).unwrap();
+    utils::show_hints();
     loop {
-        print!("> ");
+        print!("{}> ", env::current_dir().unwrap().display());
         std::io::stdout().flush().unwrap();
 
         let mut input = String::new();
@@ -27,6 +28,5 @@ fn get_user_input() {
 }
 
 fn main() {
-    utils::show_hints();
     get_user_input();
 }
